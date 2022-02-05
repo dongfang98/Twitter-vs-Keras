@@ -86,6 +86,15 @@ Two steps are needed when using Keras models, the first step is compiling, the s
       - epochs is the number of learning periods, that is, the number of iterations for all learning samples.
       - initial_epoch indicates the number of epochs at the beginning of learning. If the previous learning weight is not loaded, it defaults to 0.
       - class_ weight is a parameter for category weighting in classification problems, that is, different weights are used for learning objectives of different classifications. calss_ The input of weight is a dictionary, the variable name is class alias, and the content is weight. For example, for binary classification, the class names are usually "0" and "1".
+   - the components for model.fit are below:
+      - X represents the input feature, Y represents the learning goal, and batch_ Size indicates the number of samples in a single batch during batch learning. steps_ per_ Epoch indicates the number of batches participating in learning. The default value of none indicates the maximum number of batches allowed by dividing the total number of samples by the number of samples in a single batch.
+      - validation_ split represents the proportion of the sample used for model validation. This part of the data will be randomly selected in proportion and will not participate in learning.
+      - validation_ data receives a python tuple containing or (x, y) or (x, y, sample_weight) for verification during learning.
+      - validation_ freq only calls validation_ Split or validation_ Data is used to indicate the frequency of model verification. The default value is 1, indicating that verification is carried out in each era. validation_ Freq also receives the list. The elements in the list represent the number of epochs for model verification. For example, [1, 5, 10] represents model verification in the 1st, 5th and 10th epochs.
+      - validation_ steps only when steps is called_ per_ Used after epoch to indicate the number of batches participating in model validation.
+      - Shuffle is a shuffle option for data, which is only available when steps is called_ per_ Used when epoch = none. The default value is true, which indicates complete shuffling. In addition, false and batch are also available, which indicates shuffling in only one batch of samples.
+      - sample_ weight is a parameter that weights the sample, usually not the category weighted parameter calss_ Called together with weight. In model Define sample in compile_ weight_ when mode = none, sample_ Weight receives a 1-dimensional numpy array with the same size as the total number of samples; Define sample in_ weight_ When mode = "temporary", calss_ weight receives a two-dimensional array, which represents the weight of each sample in different time steps by line, that is, the array size is (sample, timestep).
+
 ## Entity versus procedural 
 #### Twitter API
 Twitter API contains only 4 kinds of operation: 
