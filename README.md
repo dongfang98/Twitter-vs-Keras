@@ -30,6 +30,12 @@ In this case, the usecases of Keras API are mostly model based:
 - model.inputs returns a list, this list contains  the type of data received by the input of the model. 
 - models.output returns a list, this list contains the type of data recieved by the output of the model.
 - models.summary returns the structural information, total parameter quantity and learnable parameters.
+- model.get_ config returns a dictionary that contains the structure and compilation information of all objects of the model. Keras can use this information to build a new model.
+- model.get_ weights returns a list. Each member in the list is a model weight in the form of numpy array. The order of the list is input to output.
+- model.set_ weights (pre_trained_w) specifies all weights of the model. The specified weight must be the same as that of the model get_ Weights returns the same weight size.
+- model.to_ yaml outputs the structure of keras model as a yaml file without model weight. After the output is completed, the keras model can be imported from the yaml file.
+- model.save_ weights (filepath) saves the weight of keras model as HDF5 file, and specifies the file path filepath at runtime.
+- model.load_ weights (filepath, by_name = false) export the weights to the model from the HDF5 file. model. load_ Weights usually only accept model save_ For the files output by weights, you need to specify by when receiving files from other sources_ Name = true, and the variable name of HDF5 is required to be the same as the name of the model layer object.
 ## Entity versus procedural 
 #### Twitter API
 Twitter API contains only 4 kinds of operation: 
