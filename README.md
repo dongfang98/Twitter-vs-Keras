@@ -17,8 +17,19 @@ We use 'Post' to make request:
 - In a Manage Tweet Function(https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/main/Manage-Tweets/delete_tweet.py)
 
 
-We use 'Delete' to 
+We use 'Delete' to delete our target:
+![530-4](https://user-images.githubusercontent.com/78243340/152655171-e5f3814a-5feb-4bac-91f4-2399d7fc0875.JPG)
+
+
 #### Keras API
+Keras API is different from Twitter API in many ways. From a functional insight, Keras is a open source Artificial Neural Network dataset. It has many build in deep learning models.
+
+In this case, the usecases of Keras API are mostly model based:
+
+- model.layers returns a list, the list contains all objects that have been created. For example:'keras.layers.Dense'.
+- model.inputs returns a list, this list contains  the type of data received by the input of the model. 
+- models.output returns a list, this list contains the type of data recieved by the output of the model.
+- models.summary returns the structural information, total parameter quantity and learnable parameters.
 ## Entity versus procedural 
 #### Twitter API
 Twitter API contains only 4 kinds of operation: 
