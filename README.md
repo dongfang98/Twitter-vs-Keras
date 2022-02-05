@@ -1,7 +1,23 @@
 # Twitter-vs-Keras
 ## Syntax
 #### Twitter API
-Twitter API are straight forward in syntax, user friendly designed. Most of it's functions are based on create(POST), read(GET), update(PUT), delete(DELETE) actions. This formalized designing strategy helps users to build their own function easily. Also, Twitter API provides user with packaged functions, especially those related to Twitter website. For example, Twitter API has build in functions surpporting information lookup
+Twitter API are straight forward in syntax, user friendly designed. Most of it's functions are based on create(POST), read(GET), update(PUT), delete(DELETE) actions. This formalized designing strategy helps users to build their own function easily. Also, Twitter API provides user with packaged functions, especially those related to Twitter website. For example, Twitter API has build in functions surpporting information lookup, information management and other list generation.
+
+
+For example:
+
+- In a Manage Like Function(https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/main/Manage-Likes/like_a_tweet.py)
+
+We use 'Get' to get tokens and keys we need:
+![530-1](https://user-images.githubusercontent.com/78243340/152655011-4a866e94-ec49-452d-9742-89c19bc64b57.JPG)
+![530-2](https://user-images.githubusercontent.com/78243340/152655024-1356e54e-29dd-447a-a925-512a84dcb12a.JPG)
+We use 'Post' to make request:
+![530-3](https://user-images.githubusercontent.com/78243340/152655046-9afb6354-6e51-4e1e-befc-7fafd54f2a40.JPG)
+
+- In a Manage Tweet Function(https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/main/Manage-Tweets/delete_tweet.py)
+
+
+We use 'Delete' to 
 #### Keras API
 ## Entity versus procedural 
 #### Twitter API
