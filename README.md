@@ -61,7 +61,7 @@ There are are several helpful build in models:
 The use of models:
 
 
-Two steps are needed when using Keras models, the first step is compiling, the second step is learing:
+Two steps are needed when using Keras models, the first step is compiling, the second step is learning:
 
 - model.compile:
 
@@ -94,6 +94,26 @@ Two steps are needed when using Keras models, the first step is compiling, the s
       - validation_ steps only when steps is called_ per_ Used after epoch to indicate the number of batches participating in model validation.
       - Shuffle is a shuffle option for data, which is only available when steps is called_ per_ Used when epoch = none. The default value is true, which indicates complete shuffling. In addition, false and batch are also available, which indicates shuffling in only one batch of samples.
       - sample_ weight is a parameter that weights the sample, usually not the category weighted parameter calss_ Called together with weight. In model Define sample in compile_ weight_ when mode = none, sample_ Weight receives a 1-dimensional numpy array with the same size as the total number of samples; Define sample in_ weight_ When mode = "temporary", calss_ weight receives a two-dimensional array, which represents the weight of each sample in different time steps by line, that is, the array size is (sample, timestep).
+    - the components for model.fit_generator are below:
+      - Generator refers to the generator (see "general tools"), which returns the input features, learning objectives and sample weights. If the sample weights are not returned, the default is equal weights.
+      - steps_ per_ Epoch has the same meaning as model The same as fit, but the default is the generator's internal method__ len__ The return value of (self).
+      - validation_ Data has the same meaning as model A generator that receives the same input but also validation data.
+      - validation_ Step is only used in validation_ Data is used when receiving the generator, indicating the number of batches participating in model validation.
+      - validation_ Freq only calls validation_ Data is valid, indicating the frequency of model verification. The use method is the same as model Same as fit.
+      - max_ queue_ Size receives an integer indicating the maximum number of queues for the generator.
+      - use_ Multiprocessing defaults to false, indicating that thread based processes are not used. When the computing system has multithreading capability and the generator supports Python's multithreaded processing framework, that is, it supports pickle operation, you can select true.
+      - Workers refers to the number of working threads. The default value is 0, which means that it only runs on the main thread and in use_ When multiprocessing = true, an integer greater than 0 is optional.
+
+
+After learning process, we can step in to evaluating(model.evaluate,model.evaluate_generator) and testing process(model.predict,model.predict_generator,model.predict_on_batch):
+
+
+- model.compile:
+  ![530-10](https://user-images.githubusercontent.com/78243340/152657487-670069af-7a55-4284-bc43-171de92f2e89.JPG)
+
+- model.predict,model.predict_generator,model.predict_on_batch:
+
+  ![530-11](https://user-images.githubusercontent.com/78243340/152657492-737393be-db5c-4d96-849f-a59191db80c8.JPG)
 
 ## Entity versus procedural 
 #### Twitter API
