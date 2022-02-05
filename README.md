@@ -68,7 +68,7 @@ Two steps are needed when using Keras models, the first step is compiling, the s
   - The compile of Keras model is based on model.compile, The runtime can translate the keras code into background code to perform subsequent operations such as learning and evaluation. The compilation can specify the learning component, and its use format is as follows:
   ![530-8](https://user-images.githubusercontent.com/78243340/152656837-d8539df2-43fd-41d7-bb7a-71a380204de2.JPG)
 
-  - The meaning of components are below:
+  - the meaning of components are below:
     - Optimizer is the optimizer, loss is the loss function, and metrics is the evaluation function. Multiple evaluations can be used by list.
     - loss_ weights is the loss weight. Different weight coefficients can be superimposed on the losses corresponding to different outputs in the multi output model. It is required to provide the list or tensor corresponding to the model loss.
     - sample_ weight_ Mode is the parameter for sample weighting. The default is none, which means in model One dimensional weighting in fit; When compiling the time series model, you can select sample_ weight_ Mode = "temporary", at this time, the model gives two-dimensional weight to the time series samples (according to time steps).
@@ -77,8 +77,15 @@ Two steps are needed when using Keras models, the first step is compiling, the s
 
 
 - model.fit and model.fit_generator:
+  - After the model is compiled, you can use model Fit or model fit_ Generator for learning, and its use format is as follows:
+  ![530-9](https://user-images.githubusercontent.com/78243340/152656981-f8b7c68c-c810-46b2-83be-f3591a021309.JPG)
 
-
+    - the meaning of components are below:
+      - verbose means to display the progress bar and current evaluation results during learning. It is on by default.
+      - callback is the feedback option (see "feedback").
+      - epochs is the number of learning periods, that is, the number of iterations for all learning samples.
+      - initial_epoch indicates the number of epochs at the beginning of learning. If the previous learning weight is not loaded, it defaults to 0.
+      - class_ weight is a parameter for category weighting in classification problems, that is, different weights are used for learning objectives of different classifications. calss_ The input of weight is a dictionary, the variable name is class alias, and the content is weight. For example, for binary classification, the class names are usually "0" and "1".
 ## Entity versus procedural 
 #### Twitter API
 Twitter API contains only 4 kinds of operation: 
