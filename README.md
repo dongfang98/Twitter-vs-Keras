@@ -36,6 +36,49 @@ In this case, the usecases of Keras API are mostly model based:
 - model.to_ yaml outputs the structure of keras model as a yaml file without model weight. After the output is completed, the keras model can be imported from the yaml file.
 - model.save_ weights (filepath) saves the weight of keras model as HDF5 file, and specifies the file path filepath at runtime.
 - model.load_ weights (filepath, by_name = false) export the weights to the model from the HDF5 file. model. load_ Weights usually only accept model save_ For the files output by weights, you need to specify by when receiving files from other sources_ Name = true, and the variable name of HDF5 is required to be the same as the name of the model layer object.
+
+
+There are are several helpful build in models:
+
+- keras.models.Sequential: 
+
+
+  - Sequential model is a neural network model obtained by stacking its API middle-level objects.
+  - Sequential model can be defined in two ways. One is to run keras models. In sequential, all layer objects are specified by the list. The other is to use model for the sequential class instead of specifying the layer API at runtime Add add layer object.
+  - Example of method 1:
+  ![530-5](https://user-images.githubusercontent.com/78243340/152656546-74357667-13dd-43ad-8254-f6412ae26613.JPG)
+  - Example of method 2:
+  ![530-6](https://user-images.githubusercontent.com/78243340/152656556-d9ea4f3d-fd1b-4486-9b13-17beed461d89.JPG)
+
+
+- keras.models.Model:
+ 
+ - Keras's functional model is also called functional API. Its function is to specify one tensor as input and the other tensor as output, and combine the nodes (layer objects) connected with the input and output tensors into a neural network model.
+ - Example of initialization:
+ ![530-7](https://user-images.githubusercontent.com/78243340/152656669-f41e9661-238e-4a0d-8b38-0e17a727dfb4.JPG)
+
+
+The use of models:
+
+
+Two steps are needed when using Keras models, the first step is compiling, the second step is learing:
+
+- model.compile:
+
+  - The compile of Keras model is based on model.compile, The runtime can translate the keras code into background code to perform subsequent operations such as learning and evaluation. The compilation can specify the learning component, and its use format is as follows:
+  ![530-8](https://user-images.githubusercontent.com/78243340/152656837-d8539df2-43fd-41d7-bb7a-71a380204de2.JPG)
+
+  - The meaning of components are below:
+    - Optimizer is the optimizer, loss is the loss function, and metrics is the evaluation function. Multiple evaluations can be used by list.
+    - loss_ weights is the loss weight. Different weight coefficients can be superimposed on the losses corresponding to different outputs in the multi output model. It is required to provide the list or tensor corresponding to the model loss.
+    - sample_ weight_ Mode is the parameter for sample weighting. The default is none, which means in model One dimensional weighting in fit; When compiling the time series model, you can select sample_ weight_ Mode = "temporary", at this time, the model gives two-dimensional weight to the time series samples (according to time steps).
+    - weighted_ The usage of metrics is the same as that of metrics. When sample weighting is not specified, it is equivalent to metrics. When sample weighting is specified, the learning of weighted samples will be evaluated.
+    - target_ Tensor: a parameter rarely used. Keras in the background of tensorflow assigns a tensor placeholder for the learning goal by default, but the user can call this parameter to explicitly specify the tensor of the learning goal.
+
+
+- model.fit and model.fit_generator:
+
+
 ## Entity versus procedural 
 #### Twitter API
 Twitter API contains only 4 kinds of operation: 
