@@ -179,8 +179,68 @@ Start epoch 0 of training; got log keys: []
 ```
 
 ## Documentation
-#### Twitter API
-#### Keras API
+### Home Directory
+Twitter API Documentation is mainly divided into several parts,   
+```
+- Getting started
+- Fundamentals
+- Tools and libraries
+- Tutorials
+- API reference index
+```
+
+And for Keras API,  
+```
+- About Keras
+- Getting started
+- Developer guides
+- Keras API reference
+- Code examples
+- Why choose Keras?
+- Community & governance
+- Contributing to Keras
+- KerasTuner
+```
+
+Documention for Twitter API has a more concise distinction. And both of them pay attention to quick introduce for usage (Getting started), specific usage for developers (Fundamentals/ Tools and libraries/ Developer guides), detail tutorials and examples (Tutorials/ Code examples), as well as reference list (API reference index/ Keras API reference). 
+
+Reference part is more like detailed listing for different products， which can help us quickly get what we need.
+
+### Reference
+Twitter API reference index part introduces its products by different versions. 
+```
+- Twitter API v2
+- Twitter API: Enterprise
+- Twitter API: Premium v1.1
+- Twitter API: Standard v1.1
+- Twitter Ads API
+- Authentication and utilities
+```
+Different versions or products used for different clients. For instance, Enterprise version especially created for companies, standard version mostly used for the masses and Ads API applied to advertizers. This kind of classification could benefitial for users to find what they need as soon as possible. 
+
+For each version, documentation also lists quick links of the processing for tweets, accounts, messages, media, trends and etc. Easy way to get usage scenarios and code examples.
+
+On the other hand, we can also find Keras API would like to list reference for all kinds of classes for different functions. Classes shown as following,  
+
+```
+- Models API
+- Layers API
+- Callbacks API
+- Optimizers
+- Metrics
+- Losses
+- Data loading
+- Built-in small datasets
+- Keras Applications
+- Mixed precision
+- Utilities
+- KerasTuner
+```
+For example, Model API used for creating models. Layers API mainly for building blocks of neural networks. And Optimizers required for compiling a Keras model.   
+
+Unlike Twitter API reference, Keras API does not have to distinguish several versions for defferent user groups. So they pay more attention on listing their classes which all included in one product.
+
+
 ## Versioning
 ### Twitter API
 #### [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api)  
