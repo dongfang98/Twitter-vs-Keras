@@ -149,6 +149,35 @@ Typically, there are 4 steps involved in working with this endpoint:
   - This result will contain a set of JSON objects (one object per line). Each object will contain a Tweet ID, the Tweet’s creation date (useful to locate Tweets organized by date), required action, the reason for the compliance action, and its date.
 
 #### Keras API
+An important feature of Keras is callbacks, configured in fit(). Callbacks are objects that get called by the model at different point during training, in particular:  
+  At the beginning and end of each batch  
+  At the beginning and end of each epoch  
+  Callbacks are a way to make model trainable entirely scriptable.  
+You can use callbacks to periodically save your model. Here's a simple example: a ModelCheckpoint callback configured to save the model at the end of every epoch. The filename will include the current epoch.  
+```
+callbacks = [
+    keras.callbacks.ModelCheckpoint(
+        filepath='path/to/my/model_{epoch}',
+        save_freq='epoch')
+]
+model.fit(dataset, epochs=2, callbacks=callbacks)
+```
+You can also use callbacks to do things like periodically changing the learning of your optimizer, streaming metrics to a Slack bot, sending yourself an email notification when training is complete, etc.  
+https://keras.io/guides/writing_your_own_callbacks/  
+An example:  
+```
+Starting training; got log keys: []
+Start epoch 0 of training; got log keys: []
+...Training: start of batch 0; got log keys: []
+...Training: end of batch 0; got log keys: ['loss', 'mean_absolute_error']
+...Training: start of batch 1; got log keys: []
+...Training: end of batch 1; got log keys: ['loss', 'mean_absolute_error']
+...Training: start of batch 2; got log keys: []
+...Training: end of batch 2; got log keys: ['loss', 'mean_absolute_error']
+...Training: start of batch 3; got log keys: []
+...Training: end of batch 3; got log keys: ['loss', 'mean_absolute_error']
+```
+
 ## Documentation
 #### Twitter API
 #### Keras API
