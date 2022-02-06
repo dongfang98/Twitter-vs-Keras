@@ -1,6 +1,7 @@
 # Twitter-vs-Keras
 
-[1. Syntax](#syntax)
+[1. Syntax](#syntax)  
+[2. Entity versus procedural](#entity-versus-procedural )
 ## Syntax
 #### Twitter API
 Twitter API are straight forward in syntax, user friendly designed. Most of it's functions are based on create(POST), read(GET), update(PUT), delete(DELETE) actions. This formalized designing strategy helps users to build their own function easily. Also, Twitter API provides user with packaged functions, especially those related to Twitter website. For example, Twitter API has build in functions surpporting information lookup, information management and other list generation.
