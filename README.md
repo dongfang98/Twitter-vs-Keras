@@ -137,6 +137,17 @@ As we can see, Keras API provide us only functions, or, group of functions to ac
 Unlike Twitter API, we have nothing to know about its data structure, and we do not care about this, nor do we have any data structure to be edited. For a deep learning API, we only need to use function calls --- the action that need the API to complete. I think this is why Keras is designed to be a procedure API instead of a Entity based one.
 ## Status
 #### Twitter API
+Typically, there are 4 steps involved in working with this endpoint:
+- Create a compliance job  
+  - You can specify the job type (with the value tweets or users to indicate whether the dataset you want to upload has Tweet IDs or user IDs. You can have one concurrent job per job type at any time.
+- Upload your dataset to the upload_url. 
+  - Next, you upload your dataset as a plain text file to the provided upload_url, with each line of the file containing a single Tweet ID or user ID. The upload_url expires after 15 minutes.
+- Check the job status  
+  - You can check the status of your compliance job to see whether it is created, in_progress, failed or complete.
+- Download the results  
+  - When your job is complete, you can download the results using the download_url. The download_url expires after one week (from when the job was created).  
+  - This result will contain a set of JSON objects (one object per line). Each object will contain a Tweet ID, the Tweet’s creation date (useful to locate Tweets organized by date), required action, the reason for the compliance action, and its date.
+
 #### Keras API
 ## Documentation
 #### Twitter API
